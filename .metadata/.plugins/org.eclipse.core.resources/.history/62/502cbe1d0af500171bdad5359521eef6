@@ -1,0 +1,11 @@
+package com.wxj.common;
+
+import javax.servlet.http.Cookie;
+/*
+ * Cookie 工具类
+ */
+public class CookieUtil {
+  /*
+   * 得到cookie值，不编码
+   */
+}

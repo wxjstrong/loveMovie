@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wxj.dao.ResignOrLoginDao">
+        <insert id="addUser"  parameterType="com.wxj.entity.User">
+        <!-- 执行 com.wxj.dao.ResignOrLoginDao 的getId方法赋值给parameterType参数-->
+         Insert into user(ID,USERNAME,PHONE,EMAIL,PASSWORD)values (111,#{userName},#{phone},#{eMail},#{password})
+        </insert>
+</mapper>

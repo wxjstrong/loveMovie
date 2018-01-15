@@ -1,0 +1,187 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>爱电影 登录页面</title>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding:0;
+				box-sizing: border-box;
+			}
+			html,body{
+				/*border: solid 1px blue;*/
+				height: 636px;
+				font-family: "微软雅黑";
+				font-size:14px;
+			}
+			
+			
+			#all{
+				border: solid 1px blue;
+				height: 636px;
+				/*background-color: #1a2327;*/
+				
+			}
+			
+			#topArea{
+				border: solid 1px red;
+				height: 100px;
+			    box-shadow: 0 5px 10px darkgray;
+			}
+			
+			#logo{
+				height: 99px;
+			}
+			
+			#welcome{
+				height: 99px;
+				line-height: 100px;
+				text-align: center;
+				font-size: x-large;
+				
+			}
+			
+			
+			#centerArea{
+				height: 536px;
+				
+			}
+			#carousel{
+
+				height: 536px;
+                margin-top: 20px;
+			}
+			
+			
+			#myCarousel{
+				height: 500px;
+				width: 400px;
+
+				align-items: center;
+				line-height: 536px;
+				
+			}
+			
+			#resignForm{
+
+				height: 536px;
+			
+			}
+			
+			#formDiv{
+				height:300px;
+				margin-top: 100px;
+                background-color:#A9A9A9;
+			}
+			form{
+				
+				margin-top:10px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all" class="container">
+			<div id="topArea" class="row">
+				<div id="logo" class="col-md-2" >
+					<img src="../img/loveMovieLogo.png"  alt="爱电影" width="100%"  height="98px" align="center"/>
+				</div>
+				<div id="welcome" class="col-md-2" >
+					<p>欢迎登录</p>
+				</div>
+				<div id="banner" class="col-md-8">
+					
+				</div>
+			</div>
+			
+			
+			<div id="centerArea" class="row">
+				<div id="carousel" class="col-md-5">
+					<div id="myCarousel" class="carousel slide">
+						<!-- 轮播指标-->
+						<!--<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1" ></li>
+							<li data-target="#myCarousel" data-slide-to="2" ></li>
+						</ol>-->
+						<!--轮播项目-->
+						<div class="carousel-inner">
+							<div class="item active img-responsive" >
+								<img  src="../img/C.jpg" alt="银翼杀手" style="height: 500px;width: 400px;"/>	
+							</div>
+							<div class="item">
+								<img  src="../img/B.jpg" alt="小丑回魂" style="height: 500px;width: 400px;"/>	
+							</div>
+							<div class="item">
+								<img  src="../img/A.jpg" alt="羞羞的铁拳" style="height: 500px;width: 400px;"/>	
+							</div>
+						</div>
+						<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo; </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+					</div>
+				</div>
+				
+				
+				
+				<div id="resignForm" class="col-md-7">
+					<div id="formDiv" class="panel-info">
+						<div class="panel-heading">
+                             <h3 class="panel-title">用户登录</h3>
+                        </div>
+					<div class="form">
+						<form  class="form-horizontal" action="../resignOrLogin/login.do" method="post" role="form">
+						<div class=" form-group">
+							<label for="firstname" class="col-md-offset-2 col-md-2 control-lable">用户名</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="username" id="username" value="" placeholder="请输入用户名/电话/邮箱"/>
+							</div>	
+						</div>
+						
+						<div class="form-group">
+							<label for="firstname" class="col-md-offset-2 col-md-2 control-lable">密码</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password" id="password" value="" placeholder="请输入密码"/>
+							</div>	
+						</div>
+						
+						
+						<div class="form-group" style="block:hidden">
+							<label for="firstname" class=" col-md-offset-2 col-md-2 control-lable">验证码</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="checkCode" id="checkCode" value="" placeholder="请输入验证码"/>
+							</div>	
+						</div>
+						<!--记住密码勾选框-->
+						<div class="form-group">
+							 <div class="col-md-offset-4 col-md-10">
+							 	<div class="checkbox">
+							 		<label>
+							 			<input type="checkbox"/>记住用户名密码
+							 		</label>	
+							 	</div>
+							 </div>
+						</div>
+						
+						<div class="form-group">
+							<div class="col-md-offset-4 col-md-10">
+								
+								<button type="submit" class="btn btn-default">登录</button>
+								<button type="reset" class="btn btn-default">重置</button>
+								
+							</div>
+						</div>
+						
+					</form>
+						
+					</div>
+					
+				  </div><!--表单外侧div -->
+			</div><!--布局div-->
+			</div>
+		</div>
+</html>

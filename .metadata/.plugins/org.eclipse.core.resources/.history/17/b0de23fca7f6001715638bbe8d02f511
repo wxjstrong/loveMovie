@@ -1,0 +1,7 @@
+package com.wxj.dao.redisImpl;
+
+import com.wxj.dao.JedisClient;
+
+public class RedisClientCluster implements JedisClient{
+	
+}

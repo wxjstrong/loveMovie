@@ -1,0 +1,80 @@
+package com.wxj.dao.redisImpl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import redis.clients.jedis.JedisCluster;
+
+import com.wxj.dao.JedisClient;
+
+public class RedisClientCluster implements JedisClient{
+
+	
+	@Autowired
+	JedisCluster jedisCluster ;
+	
+	@Override
+	public long expire(String key, int second) {
+		return jedisCluster.expire(key, second);
+	}
+
+	@Override
+	public long ttl(String key) {
+		return jedisCluster.ttl(key);
+	}
+
+	@Override
+	public long del(String key) {
+		return jedisCluster.del(key);
+	}
+
+	@Override
+	public String get(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String set(String key, String value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long incr(String key) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String hget(String key, String field) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> hmget(String key, String... fields) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long hset(String key, String field, String value) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String hmset(String key, Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long hdel(String key, String field) {
+		return jedisCluster.hdel(key, field);
+	}
+	
+}

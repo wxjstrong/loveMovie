@@ -1,0 +1,9 @@
+package com.wxj.common;
+
+import javax.servlet.http.Cookie;
+/*
+ * Cookie 工具类
+ */
+public class CookieUtil {
+   Cookie cookie = new Cookie(String name,String cookieValue);
+}

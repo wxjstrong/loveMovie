@@ -2,9 +2,15 @@ package com.wxj.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.wxj.entity.User;
 
 public interface ResignOrLoginService {
        public String resign(User user);
-       public String login(Map map);
+       public String login(String loginString,String password,HttpServletRequest request,HttpServletResponse respons);
+       public String getUserByToken(String token,String callBack);
+
+
 }

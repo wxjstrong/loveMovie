@@ -153,7 +153,7 @@
 						<div class="form-group" style="block:hidden;">
 							<label for="firstname" class=" col-md-offset-2 col-md-2 control-lable">验证码</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="checkCode" id="checkCode" value="" placeholder="请输入验证码"/>
+								<input type="text" class="form-control" name="checkCode" id="checkCode" value="" placeholder="请输入验证码"/>
 							</div>	
 						</div>
 						<!--记住密码勾选框-->

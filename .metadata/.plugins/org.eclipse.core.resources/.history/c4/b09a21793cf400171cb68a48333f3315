@@ -1,0 +1,46 @@
+package com.wxj.service.impl;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.wxj.dao.ResignOrLoginDao;
+import com.wxj.entity.User;
+import com.wxj.service.ResignOrLoginService;
+@Service
+public class ResignOrLoginServiceImpl implements ResignOrLoginService{
+	@Autowired
+	ResignOrLoginDao dao;
+	
+	
+	
+	
+	
+	/*
+	 * 注册
+	 */
+	@Override
+	public String resign(User user) {
+		
+		String res ="";
+		
+		int result = dao.addUser(user);
+		if (result==1){
+			res = "SUCCESS";
+		}else{
+			res = "FAIL";
+		}
+		return res;
+	}
+    
+	/*
+	 * 登录
+	 */
+	@Override
+	public String login(Map map) {
+		
+		return null;
+	}
+
+}

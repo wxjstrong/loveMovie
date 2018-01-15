@@ -118,7 +118,7 @@
 					  <div class="form-group col-md-offset-5">
 						<label class="col-md-offset-1 col-md-2 control-lable fontCenter">确认密码</label>
 						<div class="col-md-6">
-							<input  class="form-control" type="password" name="password" value=""/>
+							<input  class="form-control" type="password" name="checkPassword" value=""/>
 						</div>
 					  </div>
 					  <div class="form-group col-md-offset-5">

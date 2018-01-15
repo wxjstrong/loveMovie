@@ -1,0 +1,150 @@
+package loveMovie;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.junit.Test;
+
+import redis.clients.jedis.Jedis;
+
+public class TestClientRedis {
+   
+	Jedis jedis = new Jedis("192.168.75.128");
+	
+	
+	
+	@Test
+    public void testClient(){
+    	Jedis jedis = new Jedis("192.168.75.128");
+    	System.out.println(jedis.ping());
+    	//jedis.close();//不能关闭
+    	//System.out.println(jedis.ping());
+    	
+    	//System.out.println(jedis.clientList());
+    	//jedis.quit();
+    	//System.out.println(jedis.ping());
+    	
+    }
+	  
+	 @Test
+      public void testSet(){
+    	String abc = "123";
+    	//jedis.set("haha", abc);
+    	//jedis.set("haha", "redis");
+    	//System.out.println(jedis.get("haha"));
+    	
+    	
+    	//jedis.set("haha", "redis");//set只能set一个,带有三个参数的set最后一个参数是编码字符串
+ 
+    	
+    	jedis.mset("haha", "redis");
+    	System.out.println(jedis.mget("haha"));
+     }
+	 
+	 /*
+	  * 获取所有key
+	  */
+	 @Test
+	 public void getAllKey(){
+		String pattern ="*";
+		Set <String> list = jedis.keys(pattern);
+		System.out.println(list);
+		
+	 }
+	 
+	 /*
+	  * 删除单个key
+	  */
+	 @Test
+	 public void testDelKey(){
+		 jedis.del("haha");
+	 }
+	 /*
+	  * 同时删除多个key
+	  */
+	 @Test
+	 public void testDelKeys(){
+		 jedis.del("testlist","mytest", "test","map1", "testset", "one", "blanklist", "three", "two", "redis", "answer", "four", "fkey", "alist", "name", "Testlist", "map", "user", "age");
+	 }
+
+	 
+	 @Test
+	 public void testmset(){
+		 jedis.mset("test","redis","test1","redis1");
+	 }
+	 
+	 @Test
+	 public void testmget(){
+		 List<String> list = jedis.mget("test","test1");
+		 System.out.println(list);
+		 System.out.println(list.toString());
+	 }
+	 
+	 /*
+	  * hset
+	  */
+	 @Test
+	 public void hset(){
+		 jedis.hset("testHset", "myfield","myvalue1");
+		 jedis.hset("testHset", "myfield1","myvalue2");
+		 jedis.hset("testHset", "myfield2","myvalue3");
+	 }
+	 
+	 /*
+	  * 获取一个哈希表中的值
+	  */
+	 @Test
+	 public void hget(){
+		 String hget = jedis.hget("testHset", "myfield");//key field
+		 System.out.println(hget);
+	 }
+	 /*
+	  * 获取指定key的哈希表中所有值
+	  */
+	 @Test
+	 public void hgetAll(){
+		 Map<String, String> hget = jedis.hgetAll("testHset");//key
+		for (Map.Entry<String, String> entry:hget.entrySet()) {
+			System.out.println("key="+entry.getKey()+" "+"value="+entry.getValue());
+		}
+	 }
+	 
+	 /*
+	  * 删除哈希表中的值
+	  */
+	 
+	 @Test
+	 public void hdel(){
+		 Long hdel = jedis.hdel("testHset", "myfield2");
+		 System.out.println(hdel);
+	 }
+	 /*
+	  * 获取指定key的所有field
+	  */
+	 @Test
+	 public void hkeys(){
+		  Set<String> hkeys = jedis.hkeys("testHset");
+		  
+		  System.out.println(hkeys);
+		
+	 }
+	 
+	 /*
+	  * 判断指定key并field是否存在
+	  */
+	 @Test
+	 public void hexists(){
+          Boolean hexists = jedis.hexists("testHset", "myfield2");
+		  System.out.println(hexists);
+	 }
+	 
+	 /*
+	  * 获取指定key下所有值，类似于map.values()
+	  */
+	 @Test
+	 public void hvals(){
+         List<String> hvals = jedis.hvals("testHset");
+         System.out.println(hvals);
+	 }
+}

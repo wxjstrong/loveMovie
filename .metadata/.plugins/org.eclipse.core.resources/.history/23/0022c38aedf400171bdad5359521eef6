@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wxj.dao.ResignOrLoginDao">
+       <!-- 查询数据库中最大的ID -->
+        <select id="selectMaxId" resultType="java.lang.String">
+             select MAX(ID) from user;
+        </select>
+       <!-- 新增用户信息  -->
+        <insert id="addUser"  parameterType="com.wxj.entity.User">
+         Insert into user(ID,USERNAME,PHONE,EMAIL,PASSWORD)values (#{id},#{userName},#{phone},#{eMail},#{password})
+        </insert>
+        
+        <!-- 用户登录 -->
+        
+        <select id="loginUser" parameterType="Map" resultType="Integer">
+               select count(1) from user where  userName=#{map.loginString} or phone=#{map.loginString} or password=#{map.password} and password=#{map.password} 
+            
+        </select>
+       
+</mapper>

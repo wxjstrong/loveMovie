@@ -1,0 +1,32 @@
+package com.wxj.common;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
+public class JedisUtil {
+       /*缓存生存时间  */
+	private int expire = 60000;
+	
+	  /*对key的操作方法 */
+	private static JedisPool jedisPool = null;
+	
+	public JedisPool getPool(){
+		return jedisPool;
+	}
+	
+	/*从jedispool中获取jedis对象*/
+	public Jedis getJedis(){
+		if(jedisPool == null){
+			throw new NullPointerException();
+		}
+		return jedisPool.getResource();
+	}	
+	
+	public static JedisPool getJedisPool(){
+		return jedisPool;
+	}
+	
+	public static void setJedisPool(JedisPool jedisPool){
+		JedisUtil.jedisPool = jedisPool;
+	}
+}

@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Tue Jan 09 17:51:16 CST 2018
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Administrator\\.m2\\repository\\org\\springframework\\spring-web\\4.1.7.RELEASE\\spring-web-4.1.7.RELEASE.jar=D\:\\devsoft\\apache-tomcat-7.0.82-windows-x64\\apache-tomcat-7.0.82\\wtpwebapps\\loveMovie\\WEB-INF\\lib\\spring-web-4.1.7.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Administrator\\.m2\\repository\\org\\apache\\logging\\log4j\\log4j-web\\2.5\\log4j-web-2.5.jar=D\:\\devsoft\\apache-tomcat-7.0.82-windows-x64\\apache-tomcat-7.0.82\\wtpwebapps\\loveMovie\\WEB-INF\\lib\\log4j-web-2.5.jar
+org.eclipse.jst.jee.server\:loveMovie=D\:\\devsoft\\apache-tomcat-7.0.82-windows-x64\\apache-tomcat-7.0.82\\wtpwebapps\\loveMovie

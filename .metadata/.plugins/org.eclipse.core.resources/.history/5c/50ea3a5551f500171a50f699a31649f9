@@ -1,0 +1,16 @@
+package com.wxj.common;
+
+import org.junit.Test;
+
+public class TokenUtil {
+    @Test   
+	public static String getToken(){
+		//token 生成规则  SHA-256加密（时间戳 +UUID+时间戳）
+		
+		String timeStamp = System.currentTimeMillis()
+		
+		
+		
+		
+	}
+}

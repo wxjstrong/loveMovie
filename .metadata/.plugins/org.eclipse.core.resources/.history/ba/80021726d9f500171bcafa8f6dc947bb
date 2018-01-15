@@ -1,0 +1,53 @@
+package loveMovie;
+
+import org.junit.Test;
+
+import redis.clients.jedis.Jedis;
+
+public class TestClientRedis {
+   
+	Jedis jedis = new Jedis("192.168.75.128");
+	
+	
+	
+	@Test
+    public void testClient(){
+    	Jedis jedis = new Jedis("192.168.75.128");
+    	System.out.println(jedis.ping());
+    	//jedis.close();//不能关闭
+    	//System.out.println(jedis.ping());
+    	
+    	//System.out.println(jedis.clientList());
+    	//jedis.quit();
+    	//System.out.println(jedis.ping());
+    	
+    }
+	  
+	 @Test
+      public void testSet(){
+    	String abc = "123";
+    	//jedis.set("haha", abc);
+    	//jedis.set("haha", "redis");
+    	//System.out.println(jedis.get("haha"));
+    	
+    	//jedis.del("haha");
+    	//jedis.set("haha", "redis");//set只能set一个,带有三个参数的set最后一个参数是编码字符串
+    	//System.out.println(jedis.get("haha"));
+    	
+    	jedis.mset("haha", "redis",  "redis", "redis", "redis", "redis");
+    	System.out.println(jedis.mget("haha"));
+     }
+	 
+	 /*
+	  * 删除单个key
+	  */
+	 
+	 public void testDelKey(){
+		 jedis.del("haha");
+	 }
+	 /*
+	  * 同时删除多个key
+	  */
+	 
+	 public void testDelKeys
+}

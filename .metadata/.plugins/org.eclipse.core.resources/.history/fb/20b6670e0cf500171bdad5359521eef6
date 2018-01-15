@@ -1,0 +1,35 @@
+package com.wxj.common;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+/*
+ * Cookie 工具类
+ */
+public class CookieUtil {
+  /*
+   * 得到cookie值，不编码
+   */
+	
+	public static String getCookieValue(HttpServletRequest request,String cookieName){
+		return getCookieValue(request,cookieName,false);
+	}
+	
+	
+	/*
+	 * 得到cookie值
+	 */
+	public static String getCookieValue(HttpServletRequest request,String cookieName,boolean isDecoder){
+		Cookie[] cookieList = request.getCookies();
+	}
+	
+	
+	
+	
+	
+	
+	Cookie[] cookieList = request.getCookies();
+	
+	
+	
+	
+}

@@ -1,0 +1,62 @@
+package com.wxj.service.impl;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.wxj.dao.ResignOrLoginDao;
+import com.wxj.entity.User;
+import com.wxj.service.ResignOrLoginService;
+@Service
+public class ResignOrLoginServiceImpl implements ResignOrLoginService{
+	@Autowired
+	ResignOrLoginDao dao;
+	
+	/*
+	 * 查询数据库中Id
+	 */
+	public String getMaxId(){
+		String id = dao.selectMaxId();
+		
+		return id;
+	}
+	
+	
+	/*
+	 * 注册 id的赋值最好是在后台执行，在前台加载数据是去数据库查询最大的id是，有同时又两个用户同时注册的情况，那么两个用户传过来的id很可能就是
+	 * 冲突的，提交后在后台进行id赋值比较好
+	 */
+	@Override
+	public String resign(User user) {
+		
+		String res ="";
+		
+		//查询数据库Id
+		
+		
+		
+		
+		
+		user.setId(id);
+		
+		
+		int result = dao.addUser(user);
+		if (result==1){
+			res = "SUCCESS";
+		}else{
+			res = "FAIL";
+		}
+		return res;
+	}
+    
+	/*
+	 * 登录
+	 */
+	@Override
+	public String login(Map map) {
+		
+		return null;
+	}
+
+}

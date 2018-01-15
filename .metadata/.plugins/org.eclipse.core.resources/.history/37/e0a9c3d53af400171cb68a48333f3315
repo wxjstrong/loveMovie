@@ -1,0 +1,21 @@
+package com.wxj.common;
+
+public class IdUtil {
+     private static String Id = null;  
+	 
+	 private IdUtil(){};
+	 
+	 public static void getId(){
+		
+		 if (Id.equals(null)||Id==null){
+			 
+		 }
+		 
+		 
+		 
+		 
+		 
+	 }
+	
+	
+}

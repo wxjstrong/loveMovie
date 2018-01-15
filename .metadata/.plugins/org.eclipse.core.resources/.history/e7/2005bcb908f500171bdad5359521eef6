@@ -1,0 +1,7 @@
+package com.wxj.common;
+
+import javax.servlet.http.Cookie;
+
+public class CookieUtil {
+   Cookie cookie = new Cookie();
+}

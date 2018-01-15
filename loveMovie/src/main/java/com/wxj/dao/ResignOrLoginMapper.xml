@@ -13,16 +13,9 @@
         
         <!-- 用户登录 -->
         
-        <select id="loginUser" parameterType="map" resultType="Integer">
-               select count(1) from user where password=#{map.password}
-              <choose>
-                   <when test="{map.loginString}!=null">
-                      and userName =#{map.loginString}
-                   
-                   </when>
-              
-              </choose>
-        
+        <select id="loginUser" parameterType="java.util.Map" resultType="Integer">
+               select count(1) from user where password=#{password} and  (userName=#{loginString} or phone=#{loginString} or phone=#{loginString}) 
+            
         </select>
        
 </mapper>

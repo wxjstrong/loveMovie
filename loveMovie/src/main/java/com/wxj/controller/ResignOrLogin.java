@@ -3,10 +3,15 @@ package com.wxj.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,26 +68,22 @@ public class ResignOrLogin {
     */
     @SuppressWarnings("unchecked")
 	@RequestMapping("/login.do") 
-   	public String login(String loginString,String password){
+   	public String login(String loginString,String password,HttpServletRequest request,HttpServletResponse response){
        
     	
     	Map map = new HashMap();
        	String res = null; 
        	String returnRes=null;
-       	 //密码加盐
-       	 
-         map.put("loginString", loginString);
-         map.put("password", password);
-        
-         res = service.login(map);
+
+        res = service.login(loginString,password,request,response);
     	 
          
          
          
          if(res.equals("SUCCESS")){
-        	 returnRes= "/index";
+        	 returnRes= "redirect:/index.jsp";
          }else{
-        	 returnRes="用户名或密码错误";
+        	 returnRes="error";
          }
          
          
@@ -92,6 +93,37 @@ public class ResignOrLogin {
           }
       
        
-       
+    
+    /*
+     * 获取token
+     */
+      @RequestMapping("/token")
+      public Object getUserByToken(String token,String callback){
+    	  String result="";
+    	   result = service.getUserByToken(token);
+    	  
+    	  //判断是否为jsonP调用
+    	   if(StringUtils.isBlank(callback)){
+    		   return result;
+    	   }else{
+    		   MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
+    		   mappingJacksonValue.setJsonpFunction(callback);
+    		   return mappingJacksonValue;
+    	   }
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+    	  
+      }
+      
        
 }
